@@ -5,26 +5,12 @@ var makeLinkedList = function(){
   list.tail = null;
 
   list.addToTail = function(value){
-    var newNode = makeNode(value);
-    if (list.head === null) {
-      list.tail = list.head = newNode;
-    } else {
-      list.tail.next = newNode;
-      list.tail = newNode;
-    }
   };
 
   list.removeHead = function(){
   };
 
   list.contains = function(value){
-    var result = false;
-    for (var current = list.head; current !== null ; current = current.next){
-      if (current.value === value) {
-        result = true;
-      }
-    }
-    return result;
   };
 
   return list;
@@ -37,3 +23,4 @@ var makeNode = function(value){
 
   return node;
 };
+
