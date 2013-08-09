@@ -14,7 +14,6 @@ var HashTable = function(){
 
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  console.log(i);
   this._storage.set(i, v);
 };
 
