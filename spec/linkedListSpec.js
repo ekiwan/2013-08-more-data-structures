@@ -53,4 +53,30 @@ describe("linkedList", function() {
       expect(linkedList.contains('c')).toEqual(true);
     });
   });
+  describe(".removeHead",function(){
+    it ('it should it should make the next node the new head', function(){
+      linkedList.addToTail('a');
+      linkedList.addToTail('b');
+      linkedList.addToTail('c');
+      linkedList.removeHead();
+      expect(linkedList.head.value).toEqual('b');
+    });  
+
+    it ('it should assign new head correctly if multiple nodes are removed', function(){
+      linkedList.addToTail('a');
+      linkedList.addToTail('b');
+      linkedList.addToTail('c');
+      linkedList.removeHead();
+      linkedList.removeHead();
+      expect(linkedList.head.value).toEqual('c');
+    });
+
+    it ('it should not contain the removed value', function(){
+      linkedList.addToTail('a');
+      linkedList.addToTail('b');
+      linkedList.addToTail('c');
+      linkedList.removeHead();
+      expect(linkedList.contains('a')).toEqual(false);
+    });
+  });
 });
