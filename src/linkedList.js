@@ -8,9 +8,9 @@ var makeLinkedList = function(){
     var newNode = makeNode(value);
       if (list.head === null){
         list.head = list.tail = newNode;
-        //list.head.next = null;
+        list.tail.next = null;
       }else{
-         list.head.next = newNode;
+         list.tail.next = newNode;
          list.tail = newNode;
       }
   };
@@ -19,6 +19,13 @@ var makeLinkedList = function(){
   };
 
   list.contains = function(value){
+    var result = false;
+    for (var current = list.head; current !== null; current = current.next) {
+      if (current.value === value) {
+        result = true;
+      }
+    }
+    return result;
   };
 
   return list;
