@@ -4,7 +4,14 @@ var makeLinkedList = function(){
   list.head = null;
   list.tail = null;
 
-  list.addToTail = function(){
+  list.addToTail = function(value){
+    var newNode = makeNode(value);
+    if (list.head === null) {
+      list.tail = list.head = newNode;
+    } else {
+      list.tail.next = newNode;
+      list.tail = newNode;
+    }
   };
 
   list.removeHead = function(){
