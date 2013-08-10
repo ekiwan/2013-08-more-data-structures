@@ -26,7 +26,19 @@ makeTree.treeMethods.contains = function(value, result){
   return result;
 };
 
-
+//Experimental Code Below!
+/*function(value, result){
+  //base case
+  if (this.value === value){
+  return true;
+  }
+  //work towards the base case
+  return _.any(value, function(value){
+    this.contains(value,result);
+  });
+  return false;
+};
+*/
 
 
 
