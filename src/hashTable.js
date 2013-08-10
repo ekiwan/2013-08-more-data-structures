@@ -21,14 +21,30 @@ HashTable.prototype.insert = function(k, v){
   }
   pair = [k, v];
   collisions.push(pair);
-  console.log(pair);
+  //console.log(pair);
   this._storage.set(i, collisions);
 };
 
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  return this._storage.get(i);
-  
+  //return this._storage.get(i); old code before collision handling
+  var collisions = this._storage.get(i) || [];
+  var pair = [];
+    _(collisions).each(function(item){
+    console.log(item);
+    if (item[0] === k) {
+      pair = item;
+    }
+  });
+  return pair[1];
+
+//old code that used a for loop before _.each refactor
+/*  for (var j = 0; j < collisions.length; j++) {
+    if(collisions[j][0] === k) {
+      pair = collisions[j];
+    }
+  }
+  return pair[1];*/
 };
 
 HashTable.prototype.remove = function(){
