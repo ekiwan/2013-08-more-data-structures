@@ -12,4 +12,25 @@ describe("tree", function() {
   });
 
   // Add more tests here to test the functionality of tree.
+
+  describe(".addChild", function() {
+    it("should add a node when the tree is empty", function(){
+      tree.addChild('a');
+      expect(tree.children[0].value).toEqual('a');
+    });
+    it("should add a child node to the root when the tree is not empty", function(){
+      tree.addChild('a');
+      tree.addChild('b');
+      tree.addChild('c');
+      expect(tree.children[0].value).toEqual('a');
+      expect(tree.children[1].value).toEqual('b');
+      expect(tree.children[2].value).toEqual('c');
+    });
+    it("should add a child to other nodes besides the root", function(){
+      tree.addChild('a');
+      tree.addChild('b');
+      tree.children[1].addChild('c');
+      expect(tree.children[1].children[0].value).toEqual('c');
+    });
+  });
 });
