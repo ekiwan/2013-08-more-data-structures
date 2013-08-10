@@ -35,10 +35,10 @@ describe("tree", function() {
   });
 
   describe(".contains", function() {
-    // it("it should return true if the root contains the passed in value", function(){
-    //   tree.value = 'a';
-    //   expect(tree.contains('a')).toEqual(true);
-    // });
+    it("it should return true if the root contains the passed in value", function(){
+      tree.value = 'a';
+      expect(tree.contains('a')).toEqual(true);
+    });
 
     it("it should return true if a child node contains the passed in value", function(){
       tree.addChild('a');
