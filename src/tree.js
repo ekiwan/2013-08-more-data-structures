@@ -14,17 +14,19 @@ makeTree.treeMethods.addChild = function(value){
   return this.children.push(newChild);
 };
 
-makeTree.treeMethods.contains = function(value){
-  var result = false;
-  var i = 0;
-  for (var current = this; current.children !== undefined; current = current.children){
-    console.log('loopin');
-    if (current.value === value){
-      result = true;
+makeTree.treeMethods.contains = function(value, result){
+  if (this.value === value){
+   return true;
+  }
+  if (this.children.length > 0) {
+    for (var i = 0; i < this.children.length; i++) {
+      result = result || this.children[i].contains(value, result);
     }
-    this.children[i].contains(value);
-    i++;
   }
   return result;
 };
+
+
+
+
 
