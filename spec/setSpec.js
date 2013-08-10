@@ -18,5 +18,21 @@ describe("set", function() {
       expect(set._storage['a']).toEqual(true);
       expect(set._storage['b']).toEqual(true);
     });
+    it("should return true if the set contains the passed in value", function() {
+      set.add('a');
+      set.add('b');
+      expect(set.contains('b')).toEqual(true);
+    });
+    it("should return false if the set does not contain the passed in value", function() {
+      set.add('a');
+      set.add('b');
+      expect(set.contains('c')).toEqual(false);
+    });
+    it("should delete the passed in value", function() {
+      set.add('a');
+      set.add('b');
+      set.remove('b');
+      expect(set.contains('b')).toEqual(false);
+    });
   });
 });
