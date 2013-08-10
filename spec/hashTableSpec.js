@@ -19,7 +19,7 @@ describe("hashTable", function() {
     expect(hashTable.retrieve(v1)).toEqual(v1);
     expect(hashTable.retrieve(v2)).toEqual(v2);
   });
-  describe(".insert", function() {
+  describe(".insert and .retrieve", function() {
     it("should insert into and retrieve values from the hash", function() {
       hashTable.insert('ryan', 'cool dude');
       hashTable.insert('elie', 'also a cool dude');
